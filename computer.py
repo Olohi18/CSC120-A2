@@ -1,5 +1,7 @@
 class Computer:
 
+
+
     # What attributes will it need?
 
     # How will you set up your constructor?
