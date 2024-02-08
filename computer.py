@@ -28,17 +28,19 @@ class Computer:
         self.year_made = year_made
         self.price = price
 
+    def create_computer(self):
+        global itemID
+        itemID += 1
+        return {itemID: {self.description, self.processor_type, self.hard_drive_capacity, 
+                self.memory, self.operating_system, self.year_made, self.price}}    
+
+
+
     #What methods will you need?
     def __str__(self):
-        return (f"{self.description}, {self.processor_type}, {self.hard_drive_capacity}, {self.memory}, {self.operating_system}, {self.year_made}, {self.price}") 
+        return (f"{self.description}, {self.processor_type}, {self.processor_type}, {self.hard_drive_capacity}, {self.memory}, {self.operating_system}, {self.year_made}, {self.price}") 
     
-    def __iter__(self):
-        return self
-        #(f"{self.description}, {self.processor_type}, {self.hard_drive_capacity}, {self.memory}, {self.operating_system}, {self.year_made}, {self.price}") 
 
-
-
-    
         
     # def update(self, itemID: int, new_os: str):
     #     if itemID in ResaleShop.inventory:
