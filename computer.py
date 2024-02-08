@@ -1,4 +1,3 @@
-
 class Computer:
 
     # What attributes will it need?
@@ -29,16 +28,21 @@ class Computer:
         self.year_made = year_made
         self.price = price
 
-    # What methods will you need?
+    #What methods will you need?
     def __str__(self):
-        return (f"{self.description}, {self.processor_type}, {self.hard_drive_capacity},{self.memory},{self.operating_system}, {self.year_made}, {self.price}") 
+        return (f"{self.description}, {self.processor_type}, {self.hard_drive_capacity}, {self.memory}, {self.operating_system}, {self.year_made}, {self.price}") 
+    
+    def __iter__(self):
+        return self
+        #(f"{self.description}, {self.processor_type}, {self.hard_drive_capacity}, {self.memory}, {self.operating_system}, {self.year_made}, {self.price}") 
+
 
 
     
         
     # def update(self, itemID: int, new_os: str):
-    #     if itemID in self.inventory:
-    #         computer = self.inventory[itemID] # locate the computer
+    #     if itemID in ResaleShop.inventory:
+    #         computer = ResaleShop.inventory[itemID] # locate the computer
     #         if new_os is not None:
     #             computer["operating_system"] = new_os # update details after installing new OS
     #     else:
