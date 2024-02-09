@@ -10,26 +10,25 @@ itemID = 0 #Sets itemID to 0, increments it by 1 after every computer instance i
 class ResaleShop:
 
     #Initializes the required attribute for the ResaleShop class
-    inventory : Dict[int, Dict] = {}
-    def __init__(self, inventory):
-        self.inventory = inventory
+    inventory : list 
+    def __init__(self):
+        self.inventory = []
 
     #Defines the buy function to add an item to the inventory    
-    def buy(self, computer: Dict):
-        global itemID
-        itemID += 1 # increment itemID
+    def buy(self, computer):
+        # increment itemID
         #print(computer)
-        self.inventory[itemID] = computer
+        self.inventory.append(computer)
         #print(self.inventory)
         return itemID
     
     #Defines the sell function to remove an item from the inventory   
-    def sell(self, computerID: int):
-        if computerID in self.inventory:
-            del self.inventory[computerID]
-            print("Item", computerID, "sold!")
+    def sell(self, computer):
+        if computer in self.inventory:
+            self.inventory.remove(computer)
+            print("Item", computer, "sold!")
         else: 
-            print("Item", computerID, "not found. Please select another item to sell.")
+            print("Item not found. Please select another item to sell.")
 
 
     #Prints items in the inventory
@@ -37,38 +36,37 @@ class ResaleShop:
         # If the inventory is not empty
         if self.inventory:
             # For each item
-            for computerID in self.inventory:
+            for computer in self.inventory:
                 # Print its details
-                print(f'Item ID: {computerID}, Properties: ({self.inventory[computerID]})')
+                print(f'{computer})')
         else:
             print("Inventory currently empty. No inventory to display.")
 
 #Program parts I really need help with
 #Whenever I try running the update_price, it says computer object "price" cannot be assigned
-    """def update_price(self, computerID: int, new_price: int):
-        if computerID in self.inventory:
-            self.inventory[computerID]["price"] = new_price
+    def update_price(self, computer, new_price: int):
+        if computer in self.inventory:
+            computer.price = new_price
         else:
-            print("Item", computerID, "not found. Cannot update price.")"""
+            print("Item not found. Cannot update price.")
     
 #Similarly, running this function says Computer object not subscriptable
-    """def refurbish(self, computerID: int, new_os: Optional[str] = None):
-    if computerID in self.inventory:
-        computer = self.inventory[computerID] # locate the computer
-        if int(computer["year_made"]) < 2000:
-            computer["price"] = 0 # too old to sell, donation only
-        elif int(computer["year_made"]) < 2012:
-            computer["price"] = 250 # heavily-discounted price on machines 10+ years old
-        elif int(computer["year_made"]) < 2018:
-            computer["price"] = 550 # discounted price on machines 4-to-10 year old machines
-        else:
-            computer["price"] = 1000 # recent stuff
+    def refurbish(self, computer, new_os: Optional[str] = None):
+        if computer in self.inventory:
+            if int(computer.year_made) < 2000:
+                computer.price = 0
+            elif int(computer.year_made) < 2012:
+                computer.price = 250  
+            elif int(computer.year_made) < 2018:
+                computer.price = 550
+            else:
+                computer.price = 1000                
 
         if new_os is not None:
-            computer["operating_system"] = new_os # update details after installing new OS
-    else:
-        print("Item", computerID, "not found. Please select another item to refurbish.")"""
-    
+            computer.operating_system = new_os # update details after installing new OS
+        else:
+            print("Item not found. Please select another item to refurbish.")
+        
 
 #main functin that implements the methods defined in the ResaleShop class
 def main():
@@ -77,12 +75,13 @@ def main():
     computer2 = Computer("MacAir", "3.5 GHc 12-Core Intel Neon F6", 512, 256,"macOS Big Sur", 2023, 1500)
     
     #Creates an instance of the ResaleShop class
-    resale = ResaleShop({})
+    resale = ResaleShop()
     print("-----Loading inventory------")
     resale.print_inventory() #prints items in inventory
 
     print("-----Buying 1st computer-----")
     computerID = resale.buy(computer1) #adds computer1 to inventory
+    resale.update_price(computer1, 10000)
 
     print("-----1st Computer bought-----")
     print()
@@ -97,6 +96,8 @@ def main():
     
     print("-----Selling computer 1-----")
     resale.sell(1) #Sells computer1
+
+    resale.refurbish(computer2, "MonOS")
 
     print() #prints a new line
     print("----items left in inventory:-----")
