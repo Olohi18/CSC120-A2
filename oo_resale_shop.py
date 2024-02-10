@@ -98,6 +98,7 @@ def main():
     resale.sell(1) #Sells computer1
 
     resale.refurbish(computer2, "MonOS")
+    print("-----Operating system updated, price updated-----")
 
     print() #prints a new line
     print("----items left in inventory:-----")
