@@ -29,7 +29,7 @@ __YES__ 1 pt: Can successfully add a new `Computer` to the inventory
 
 __YES__ 1 pt: Can successfully remove a `Computer` from the inventory
 
-__NO__ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventory
+__YES__ 1 pt: Can successfully update the price/OS of a `Computer` contained in the inventory
 
 __YES__ 1 pt: Program prints appropriate error messages
 
