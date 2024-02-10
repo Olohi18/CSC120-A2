@@ -10,7 +10,9 @@ I also learned to at least, understand where I'm at before goung to meet the tut
 
 Out of confusion from the mistake I made going for tutoring confused about which questions to ask, I had to restart the assignment on the due date, Wednesday, February 07, 2024, and it took me roughly three hours ot complete it. I need help with the update_price and refurbish methods as they took most of my time but just still won't run. The interpreter keeps telling me ".Computer object" not subscriptable, or cannot be assigned.
 
-I felt bad having to ask for help on the Discord group chat cos the assignment was past its due date, so I just commented that part out. I'll be going for office hours to resolve this issue, and will revise my assignment then.
+I felt bad having to ask for help on the Discord group chat cos the assignment was past its due date, so I just commented that part out. I'll be going for office hours to resolve this issue, and will revise my assignment then. 
+
+###Update on the above paragraph. I went for office hours and was able to fix it####
 
 My advice to anyone taking this course is to not see the assignment as a mountain. It's wayyyy easier than it looks and with the right help, you'll be good. Also, be wise going for tutoring. If you don't have the right questions to ask, you might end up confusing yourself and the tutor, and it's not your fault or that of the tutors. Life happens!
 
